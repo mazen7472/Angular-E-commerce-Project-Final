@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="'/'">
+        <img src="../../../assets/images/freshcart-logo.svg" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
+            <li class="nav-item">
+                <a class="nav-link " aria-current="page" routerLinkActive="text-main" routerLink="home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="text-main" [routerLink]="'cart'">Cart</a>
+              </li>
+          
+             
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="text-main" [routerLink]="'products'">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="text-main" [routerLink]="'wishlist'">Wish List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="text-main" [routerLink]="'categories'">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="text-main" [routerLink]="'brands'">Brands</a>
+              </li>
+            
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+      
+  
+            <li class="navbar-nav d-flex align-items-center flex-row mx-auto">
+              <a class="nav-link"  href="https://www.instagram.com"> <i class="fab mx-2 fa-instagram"></i></a>
+              <a class="nav-link"  href="https://www.facebook.com"><i class="fab mx-2 fa-facebook"></i></a>
+              <a class="nav-link"  href="https://www.twitter.com"><i class="fab mx-2 fa-twitter"></i></a>
+              <a class="nav-link"  href="https://www.linkedin.com"><i class="fab mx-2 fa-linkedin"></i></a>
+              <a class="nav-link"  href="https://www.youtube.com"><i class="fab mx-2 fa-youtube"></i></a>
+              
+            </li>
+            
+            <li  class="navbar-nav" *ngIf="!isLoggedIn">
+              <a class="nav-link" aria-current="page" routerLinkActive="text-main" [routerLink]="'signup'">SignUp</a>
+            </li>
+            <li  class="navbar-nav" *ngIf="!isLoggedIn">
+              <a class="nav-link" aria-current="page" routerLinkActive="text-main" [routerLink]="'login'">Login</a>
+            </li>
+            <li (click)="logout()" class="navbar-nav" *ngIf="isLoggedIn" >
+              <span class="nav-link cursor-pointer" aria-current="page">Logout</span>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn">
+              <a class="nav-link position-relative " [routerLink]="'cart'">
+                <i class="fas fa-cart-shopping text-main fa-lg p-3"></i>
+                <span class="badge bg-main text-white position-absolute top-0 end-0 ">{{cartNum}}</span>
+              </a>
+            </li>
+            
+          </ul>
+  
+  
+      </div>
+    </div>
+  </nav>

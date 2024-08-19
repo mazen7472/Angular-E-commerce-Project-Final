@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="w-50 mx-auto my-5">
+        <input [(ngModel)]="searchKey" type="text"  placeholder="search by name" class="form-control w-50 mx-auto my-5 border-4 " name="" id="">
+    </div>
+ <div class="row">
+  <div class="col-md-2" *ngFor="let product of allProduct | search : searchKey">
+  <app-product-item [product] = "product"></app-product-item>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="bg-main-light p-4 my-4 ">
+
+        <h3>My Wish List</h3>
+
+        <div *ngFor="let wishes of wishList" class="row  align-items-center  border-bottom">
+            <div class="col-md-2 py-2">
+                <img [src]="wishes.imageCover" class="w-100" alt="">
+            </div>
+            <div class="col-md-10 d-flex align-items-center justify-content-between">
+          <div>     
+             <h5 class="fw-bolder">{{wishes.title}}</h5>
+            <h6 class="text-main fw-bold">{{wishes.price|currency:'LE'}}</h6>
+
+            
+                <i (click)="removeItem(wishes.id)" class="fa-regular fa-trash-can text-danger cursor-pointer"> <span class="fw-bold"> Remove</span> </i>
+               
+           
+        </div>
+
+        <div>
+            <button (click)="addToCart(wishes.id)" class="btn btn-success">
+                Add To Cart
+            </button>
+        </div>
+
+            </div>
+        </div>
+    </div>
+</div>

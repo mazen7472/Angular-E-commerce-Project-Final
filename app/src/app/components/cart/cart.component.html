@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="bg-main-light p-4 my-4">
+
+        <h3>Shopping Cart</h3>
+        <h6 class="text-main">Total Price : <span class="fw-bolder"> {{cartDetails?.totalCartPrice|currency:'LE'}} </span></h6>
+         <div *ngFor="let product of cartDetails?.products|filter" class="row align-items-center border-bottom">
+            <div class="col-md-1 py-2 ">
+    <img [src]="product?.product?.imageCover"  class="w-100">
+            </div>
+            <div class="col-md-11 justify-content-between d-flex py-4">
+            <div>
+                <h6>{{product.product.title}}</h6>
+                <h6 class="text-main">Price <span class="fw-bolder">{{product.price|currency:'LE'}}</span> </h6>
+                <button (click)="removeCart(product.product._id)" class="btn">
+                    <i class="fa-regular fa-trash-can text-danger"></i>
+                    Remove
+                </button>
+            </div>
+            <div>
+                <button (click)="updateProductNum(product.product._id,product.count+1)" class="btn border border-1 border-success btn-update">+</button>
+                <span class="mx-3">{{product.count}}</span>
+                <button  (click)="updateProductNum(product.product._id,product.count-1)" class="btn border border-1 border-success btn-update">-</button>
+            </div>
+            </div>
+    
+         </div>
+
+         <button  class="btn bg-main  my-5 ms-auto d-flex align-items-center"> 
+        <a routerLink="/checkout" class="text-white">
+           Checkout 
+        </a>
+        </button>
+    </div>
+    
+</div>
